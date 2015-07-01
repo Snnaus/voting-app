@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('PollingCtrl', function ($scope, $http) {
+  .controller('PollingCtrl', function ($scope, $http, Auth) {
     $scope.getPolls = [];
+    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isAdmin = Auth.isAdmin;
+    $scope.getCurrentUser = Auth.getCurrentUser;
     
     $http.get('/api/polls').success(function(getPolls){
       $scope.getPolls = getPolls;
