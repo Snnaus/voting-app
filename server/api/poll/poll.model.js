@@ -7,7 +7,7 @@ var PollSchema = new Schema({
   name: String,
   info: String,
   active: Boolean,
-  options: Object,
+  choices: Object,
   totalAnswers: Number
 });
 
