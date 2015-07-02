@@ -55,7 +55,7 @@ Poll.find({}).remove(function(){
     user: 'test',
     info: '#',
     active: true,
-    choices: {'A':0, 'B':0, 'C':0},
+    choices: {'A':6, 'B':1, 'C':10},
     totalAnswers: 0
   },{
     name: 'What is the answer??',

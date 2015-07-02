@@ -1,5 +1,7 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
+<canvas id='bar'></canvas>
+
 <ul ng-repeat="(choice, result) in poll.choices">
     <input type=radio name='{{poll.name}}' ng-value='{{choice}}' ng-model='userChoice'> {{choice}}
 </ul>
