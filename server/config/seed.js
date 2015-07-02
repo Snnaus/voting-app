@@ -58,11 +58,11 @@ Poll.find({}).remove(function(){
     choices: {'A':0, 'B':0, 'C':0},
     totalAnswers: 0
   },{
-    name: 'What is the answer?',
+    name: 'What is the answer??',
     user: 'test',
     info: '#',
     active: true,
     choices: {'A':0, 'B':0, 'C':0, 'D': 0, 'E':0 },
     totalAnswers: 0
-  })
-})
+  });
+});

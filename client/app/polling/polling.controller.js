@@ -6,6 +6,7 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.userChoice = null;
     
     $http.get('/api/polls').success(function(getPolls){
       $scope.getPolls = getPolls;

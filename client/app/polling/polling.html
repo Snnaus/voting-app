@@ -5,8 +5,8 @@
         <div class='col-sm-4 col-md-4 col-lg-4'></div>
         <div class='col-sm-4 col-md-4 col-lg-4'>
         <button id='all' class='btn btn-primary'>All Polls</button>
-        <button id='my_polls' class='btn btn-default'>My Polls</button>
-        <button  id=new_poll class='btn btn-success'>New Poll</button>
+        <button id='my_polls' ng-show='{{isLoggedIn}}' class='btn btn-default'>My Polls</button>
+        <button  id=new_poll ng-show='{{isLoggedIn}}' class='btn btn-success'>New Poll</button>
         </div>
     </div>
 </header>
@@ -14,14 +14,14 @@
 <div id=poll_holder class='container'>
     <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in getPolls">
-        <li id=pollName><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a>
-            <ul ng-repeat="(choice, result) in thing.choices">
-                <input type=radio name'{{choice}}'> {{choice}}
-            </ul>
+      <h1 class="page-header">Polls:</h1>
+      <form name='pollContainer' ng-repeat='thing in getPolls'>
+          <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-show='{{thing.active}}'>
+        <li id=pollName><a ng-href="/showPoll/id/{{thing['_id']}}" tooltip="{{thing.info}}">{{thing.name}}</a>
         </li>
+        <button class='btn text-center voteBtn'>Vote</button>
       </ul>
+      </form>
     </div>
   </div>
 </div>
