@@ -2,6 +2,11 @@
 
 <canvas id='bar'></canvas>
 
-<ul ng-repeat="(choice, result) in poll.choices">
-    <input type=radio name='{{poll.name}}' ng-value='{{choice}}' ng-model='userChoice'> {{choice}}
-</ul>
+<h1 id=answer ng-bind='userChoice.choice'></h1>
+
+<form name='pollForm'>
+    <ul ng-repeat="(choice, result) in poll.choices">
+        <input type=radio name='{{poll.name}}' value='{{choice}}' ng-model='userChoice.choice'> {{choice}}
+    </ul>
+    <button class='btn btn-primary' ng-click='$log.log(userChoice)'>Log</button>
+</form>

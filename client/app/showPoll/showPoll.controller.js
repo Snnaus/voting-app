@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('ShowPollCtrl', function ($scope, $http, $routeParams, Auth) {
+  .controller('ShowPollCtrl', function ($scope, $http, $routeParams, Auth, $log) {
+    $scope.$log = $log;
     $http.get('/api/polls/'+$routeParams.id).success(function(poll){
       $scope.poll = poll;
       var labels = [];
@@ -19,7 +20,12 @@ angular.module('workspaceApp')
       
       var ctx = document.getElementById('bar').getContext('2d');
       
-      var newChart = new Chart(ctx).Bar(data);
+      var newChart = new Chart(ctx).Bar(data, {
+        responsive: true,
+      });
+      
+      $scope.userChoice = {};
+      
     });
     
     
