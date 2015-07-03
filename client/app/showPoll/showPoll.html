@@ -1,12 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<canvas id='bar'></canvas>
+<canvas id='bar' ></canvas>
 
-<h1 id=answer ng-bind='userChoice.choice'></h1>
+<h1 id=poll_name ng-bind='poll.name' ng-hide'voted'></h1>
 
-<form name='pollForm'>
+<form name='pollForm' ng-hide='voted'>
     <ul ng-repeat="(choice, result) in poll.choices">
         <input type=radio name='{{poll.name}}' value='{{choice}}' ng-model='userChoice.choice'> {{choice}}
     </ul>
-    <button class='btn btn-primary' ng-click='$log.log(userChoice)'>Log</button>
+    <button class='btn btn-primary' ng-click='poll.choices[userChoice.choice] = poll.choices[userChoice.choice]+1; voting();'>Vote</button>
 </form>
