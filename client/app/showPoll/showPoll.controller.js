@@ -6,15 +6,7 @@ angular.module('workspaceApp')
     $scope.voted = false;
     $http.get('/api/polls/'+$routeParams.id).success(function(poll){
       $scope.poll = poll;
-      
-      
-      
-      
-      $scope.userChoice = {};
-      
-      
-      
-      
+      $scope.userChoice = {choice: null};
     });
     
     $scope.voting = function(){
@@ -38,9 +30,7 @@ angular.module('workspaceApp')
           }); 
         
         $http.put('/api/polls/'+$routeParams.id, $scope.poll);
-        $http.get('/api/polls/'+$routeParams.id).success(function(poll){
-          console.log(poll);
-        });
+        
       };
     
     /*for(var i in $scope.poll.choices){

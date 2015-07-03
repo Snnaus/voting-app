@@ -1,12 +1,25 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<canvas id='bar' ></canvas>
+<h1 id=poll_name class='text-center'>{{poll.name}}</h1>
+<h3 id=user_name class='text-center'>{{'~ '+poll.user}}</h3>
 
-<h1 id=poll_name ng-bind='poll.name' ng-hide'voted'></h1>
 
 <form name='pollForm' ng-hide='voted'>
     <ul ng-repeat="(choice, result) in poll.choices">
-        <input type=radio name='{{poll.name}}' value='{{choice}}' ng-model='userChoice.choice'> {{choice}}
+        <div class='row'>
+            <div class='col-lg-4 col-md-4 col-xs-0'></div>
+            <div class='col-lg-4 col-md-4 col-xs-12'>
+                <input type=radio name='{{poll.name}}' value='{{choice}}' ng-model='userChoice.choice'> {{choice}}
+            </div>
+        </div>
     </ul>
-    <button class='btn btn-primary' ng-click='poll.choices[userChoice.choice] = poll.choices[userChoice.choice]+1; voting();'>Vote</button>
+    <div class='row'>
+        <div class='col-lg-4 col-md-4 col-xs-0'></div>
+        <div class='col-xs-12 col-md-4 col-lg-4'>
+            <input type=text name={{poll.name}} ng-model=userChoice.choice placeholder='Other'>
+            <button class='btn btn-primary' ng-click='poll.choices[userChoice.choice] = poll.choices[userChoice.choice]+1; voting();' ng-disabled='!userChoice.choice'>Vote</button>
+        </div>
 </form>
+<div class='col-xs-12'>
+<canvas id='bar' ng-show='userChoice.choice' class='center-block'></canvas>
+</div>
