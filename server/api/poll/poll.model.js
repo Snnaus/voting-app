@@ -9,7 +9,7 @@ var PollSchema = new Schema({
   info: String,
   active: Boolean,
   choices: Object,
-  totalAnswers: Number
+  voters: Array
 });
 
 module.exports = mongoose.model('Poll', PollSchema);

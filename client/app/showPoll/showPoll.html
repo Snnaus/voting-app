@@ -4,7 +4,7 @@
 <h3 id=user_name class='text-center'>{{'~ '+poll.user}}</h3>
 
 
-<form name='pollForm' ng-hide='voted'>
+<form name='pollForm' ng-show='show'>
     <ul ng-repeat="(choice, result) in poll.choices">
         <div class='row'>
             <div class='col-lg-4 col-md-4 col-xs-0'></div>
@@ -23,5 +23,5 @@
 </form>
 
 <div class='col-xs-12'>
-    <canvas id='bar' ng-show='userChoice.choice' class='center-block'></canvas>
+    <canvas id='bar' ng-hide='{{show}}' class='center-block'></canvas>
 </div>

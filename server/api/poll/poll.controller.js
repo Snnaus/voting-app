@@ -36,6 +36,7 @@ exports.update = function(req, res) {
     if(!poll) { return res.send(404); }
     var updated = _.merge(poll, req.body);
     updated.markModified('choices');
+    updated.markModified('voters');
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, poll);
