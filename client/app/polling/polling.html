@@ -4,9 +4,9 @@
     <div class="container">
         <div class='col-sm-4 col-md-4 col-lg-4'></div>
         <div class='col-sm-4 col-md-4 col-lg-4'>
-        <button id='all' class='btn btn-primary'>All Polls</button>
-        <button id='my_polls' ng-show='{{isLoggedIn}}' class='btn btn-default'>My Polls</button>
-        <button  id=new_poll ng-show='{{isLoggedIn}}' class='btn btn-success'>New Poll</button>
+        <button id='all' class='btn btn-primary' ng-click='resetPolls()'>All Polls</button>
+        <button id='my_polls' ng-show='{{isLoggedIn}}' class='btn btn-info' ng-click='updatePolls()'>My Polls</button>
+        <button id=new_poll ng-show='{{isLoggedIn}}' class='btn btn-success'>New Poll</button>
         </div>
     </div>
 </header>
@@ -16,7 +16,7 @@
     <div class="col-lg-12">
       <h1 class="page-header">Polls:</h1>
       <form name='pollContainer' ng-repeat='thing in getPolls'>
-          <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-show='{{thing.active}}'>
+          <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-show='thing.show'>
         <li id=pollName><a ng-href="/showPoll/id/{{thing['_id']}}" tooltip="{{thing.info}}">{{thing.name}}</a>
         </li>
       </ul>
