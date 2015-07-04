@@ -25,12 +25,14 @@ angular.module('workspaceApp')
       
         var ctx = document.getElementById('bar').getContext('2d');
       
-         var newChart = new Chart(ctx).Bar(data, {
-          responsive: false,
-          }); 
+        var newChart = new Chart(ctx).Bar(data, {
+          responsive: false
+        }); 
         
         $http.put('/api/polls/'+$routeParams.id, $scope.poll);
-        
+        $http.get('/api/polls/'+$routeParams.id).success(function(poll){
+          console.log(poll);
+        });
       };
     
     /*for(var i in $scope.poll.choices){
