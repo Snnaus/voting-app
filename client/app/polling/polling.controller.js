@@ -3,6 +3,7 @@
 angular.module('workspaceApp')
   .controller('PollingCtrl', function ($scope, $http, Auth) {
     $scope.getPolls = [];
+    $scope.pastPolls = [];
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.currentUser = Auth.getCurrentUser();
@@ -12,7 +13,11 @@ angular.module('workspaceApp')
       $scope.getPolls.forEach(function(poll){
         poll.show = true;
         hideDeleted(poll);
+        if(poll.show === false){
+          $scope.pastPolls.push(poll);
+        }
       });
+      console.log($scope.getPolls, $scope.pastPolls);
       console.log(getPolls[0].user, $scope.currentUser, $scope.isLoggedIn);
     });
     
@@ -53,4 +58,9 @@ angular.module('workspaceApp')
       }
     };
     
+    var hideActive = function(poll){
+      if(poll.active === true){
+        poll.show = false;
+      }
+    };
   });

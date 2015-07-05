@@ -1,8 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <h1 id=poll_name class='text-center'>{{poll.name}}</h1>
-<h3 id=user_name class='text-center'>{{'~ '+poll.user}}</h3>
-
+<h3 id=user_name class='text-center'>{{'~ '+poll.user}} </h3>
+<div class='col-lg-4 col-md-4 col-xs-0'></div>
+<div class='col-lg-4 col-md-4 col-xs-12'>
+    <a href=/polling><button id='delBtn' class='btn btn-danger crucialBtns ' ng-show='currentUser.name === poll.user && poll.active'>Delete Poll</button></a>
+    <a href=/polling><button id='closeBtn' class='btn btn-warning crucialBtns ' ng-show='currentUser.name === poll.user && poll.active' ng-click='closePoll(poll)'>Close Poll</button></a>
+</div>
 
 <form name='pollForm' ng-show='show'>
     <ul ng-repeat="(choice, result) in poll.choices">
@@ -22,6 +26,13 @@
     </div>
 </form>
 
-<div class='col-xs-12'>
-    <canvas id='bar' ng-hide='{{show}}' class='center-block'></canvas>
+<div class='col-xs-12' ng-hide='{{show}}'>
+    <canvas id='bar' class='center-block'></canvas>
+</div>
+
+<div class='row'>
+    <div class='col-xs-0 col-md-4 col-lg-4'></div>
+    <div class='col-xs-12 col-md-4 col-lg-4'>
+        
+    </div>
 </div>

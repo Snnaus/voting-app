@@ -6,3 +6,11 @@
 #user_name{
     color: blue;
 }
+
+.crucialBtns{
+    margin-top: 10px;
+}
+
+#delBtn{
+    margin-left: 15px;
+}

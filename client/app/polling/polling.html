@@ -24,3 +24,17 @@
     </div>
   </div>
 </div>
+
+<div id=poll_holder class='container'>
+    <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Past Polls:</h1>
+      <form name='pollContainer' ng-repeat='thing in pastPolls'>
+          <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-show='!thing.show'>
+        <li id=pollName><a ng-href="/showPoll/id/{{thing['_id']}}" tooltip="{{thing.info}}">{{thing.name}}</a>
+        </li>
+      </ul>
+      </form>
+    </div>
+  </div>
+</div>

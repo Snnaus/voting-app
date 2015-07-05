@@ -55,11 +55,20 @@ angular.module('workspaceApp')
     
     
     var updateShow = function(user, poll, logged){
-      if(logged && poll.voters.indexOf(user.name) === -1){
+      if(logged && poll.voters.indexOf(user.name) === -1 && poll.active){
         return true;
       } else{
         return false;
       }
+    };
+    
+    $scope.closePoll = function(poll){
+      poll.active = false;
+      $http.put('/api/polls/'+poll._id, poll);
+    };
+    
+    $scope.deletePoll = function(poll){
+      $http.delete('/api/polls/'+poll._id);
     };
     /*for(var i in $scope.poll.choices){
       $scope.labels.push(i);
