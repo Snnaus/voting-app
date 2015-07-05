@@ -1,0 +1,19 @@
+#pollForm{
+    text-align: center;
+}
+
+.choiceRow{
+    margin-top: 5px;
+    max-width: 200px;
+    text-align: center;
+}
+
+#newNameDiv{
+    margin-top: 25px;
+    max-width: 200px;
+    text-align: center;
+}
+
+#addChoice{
+    max-width: 105px;
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('PollingCtrl', function ($scope, $http, Auth) {
+  .controller('PollingCtrl', function ($scope, $http, Auth, $location) {
     $scope.getPolls = [];
     $scope.pastPolls = [];
     $scope.isLoggedIn = Auth.isLoggedIn();
@@ -21,17 +21,6 @@ angular.module('workspaceApp')
       console.log(getPolls[0].user, $scope.currentUser, $scope.isLoggedIn);
     });
     
-    $scope.addPoll = function(){
-      if($scope.newPoll === ''){
-        return;
-      }
-      $http.post('/api/polls', { name: $scope.newPoll });
-      $scope.newPoll = '';
-    };
-    
-    $scope.deletePoll = function(poll) {
-      $http.delete('/api/polls/' + poll._id);
-    };
     
     $scope.resetPolls = function(){
       $scope.getPolls.forEach(function(poll){
@@ -58,9 +47,7 @@ angular.module('workspaceApp')
       }
     };
     
-    var hideActive = function(poll){
-      if(poll.active === true){
-        poll.show = false;
-      }
+    $scope.redirectNew = function(){
+      $location.path('/newPoll');
     };
   });

@@ -1,0 +1,24 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class='container'>
+    <form id='pollForm' name='poll' class='' novalidate>
+        <h1>New Poll</h1>
+        <div id='newNameDiv' class='form-group row center-block'>
+                <label for='name' class=''>Poll Name</label>
+                <input id='name' placeholder='What is the answer!?' ng-model='newName' class='form-control'>
+        </div>
+        <div class='form-group'>
+            <h3>Poll Choices</h3>
+            <div class='row choiceRow center-block'  ng-repeat='i in newChoices track by $index'>
+                <input class='form-control' ng-model='newChoices[$index]'>
+            </div>
+            <div class='input-group choiceRow row center-block'>
+                <input type=text id='addChoice' class='form-control center-block' ng-model='additionalChoice'>
+                <span class='input-group-btn center-block' ng-click=''>
+                    <button class='btn btn-info' ng-click='addChoice(newChoices, additionalChoice)'>Add Option</button>
+                </span>
+            </div>
+        </div>
+            <button class='btn btn-success center-block' ng-click='createPoll(newName, newChoices, currentUser)' ng-disabled='!newName'>Create Poll</button>
+    </form>
+</div>

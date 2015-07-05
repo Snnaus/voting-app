@@ -6,7 +6,7 @@
         <div class='col-sm-4 col-md-4 col-lg-4'>
         <button id='all' class='btn btn-primary' ng-click='resetPolls()'>All Polls</button>
         <button id='my_polls' ng-show='{{isLoggedIn}}' class='btn btn-info' ng-click='updatePolls()'>My Polls</button>
-        <button id=new_poll ng-show='{{isLoggedIn}}' class='btn btn-success'>New Poll</button>
+        <button id=new_poll ng-show='{{isLoggedIn}}' class='btn btn-success' ng-click='redirectNew()'>New Poll</button>
         </div>
     </div>
 </header>

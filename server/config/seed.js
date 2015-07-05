@@ -53,21 +53,18 @@ Poll.find({}).remove(function(){
   Poll.create({
     name: 'What is the answer?',
     user: 'Test User',
-    info: '#',
     active: true,
     choices: {'A':6, 'B':1, 'C':10},
     voters: []
   },{
     name: 'What is the answer??',
     user: 'test',
-    info: '#',
     active: true,
     choices: {'A':0, 'B':0, 'C':0, 'D': 0, 'E':0 },
     voters: []
   },{
     name: 'What is the answer????',
     user: 'test',
-    info: '#',
     active: false,
     choices: {'A':0, 'B':0, 'C':0, 'D': 0, 'E':0 },
     voters: []
