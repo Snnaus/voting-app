@@ -1,25 +1,28 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <h1 id=poll_name class='text-center'>{{poll.name}}</h1>
-<h3 id=user_name class='text-center'>{{'~ '+poll.user}} </h3>
-<div class='col-lg-4 col-md-4 col-xs-0'></div>
-<div class='col-lg-4 col-md-4 col-xs-12'>
-    <a href=/polling><button id='delBtn' class='btn btn-danger crucialBtns ' ng-show='currentUser.name === poll.user && poll.active'>Delete Poll</button></a>
+<div id=user_name class='text-center'>
+    <h3 ng-hide='currentUser.name === poll.user && poll.active'>{{'~ '+poll.user}}</h3>
+    <a href=/polling><button id='delBtn' class='btn btn-danger crucialBtns ' ng-show='currentUser.name === poll.user && poll.active' ng-click='deletePoll(poll)'>Delete Poll</button></a>
     <a href=/polling><button id='closeBtn' class='btn btn-warning crucialBtns ' ng-show='currentUser.name === poll.user && poll.active' ng-click='closePoll(poll)'>Close Poll</button></a>
+
 </div>
 
-<form name='pollForm' ng-show='show'>
+
+    
+
+<form id='pollChoices' name='pollForm' ng-show='show'>
     <ul ng-repeat="(choice, result) in poll.choices">
         <div class='row'>
-            <div class='col-lg-4 col-md-4 col-xs-0'></div>
+            <div class='col-lg-5 col-md-5 col-xs-0'></div>
             <div class='col-lg-4 col-md-4 col-xs-12'>
                 <input type=radio name='{{poll.name}}' value='{{choice}}' ng-model='userChoice.choice'> {{choice}}
             </div>
         </div>
     </ul>
     <div class='row'>
-        <div class='col-lg-4 col-md-4 col-xs-0'></div>
-        <div class='col-xs-12 col-md-4 col-lg-4'>
+        <div class='col-lg-5 col-md-5 col-xs-0'></div>
+        <div class='col-lg-4 col-md-4 col-xs-12'>
             <input type=text name={{poll.name}} ng-model=userChoice.choice placeholder='Other'>
             <button class='btn btn-primary' ng-click='poll.choices[userChoice.choice] = poll.choices[userChoice.choice]+1; voting();' ng-disabled='!userChoice.choice'>Vote</button>
         </div>
