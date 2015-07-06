@@ -2,8 +2,8 @@
 
 <h1 id=poll_name class='text-center'>{{poll.name}}</h1>
 <div id=user_name class='text-center'>
-    <h3 ng-hide='currentUser.name === poll.user && poll.active'>{{'~ '+poll.user}}</h3>
-    <a href=/polling><button id='delBtn' class='btn btn-danger crucialBtns ' ng-show='currentUser.name === poll.user && poll.active' ng-click='deletePoll(poll)'>Delete Poll</button></a>
+    <h3 ng-hide='currentUser.name === poll.user'>{{'~ '+poll.user}}</h3>
+    <a href=/polling><button id='delBtn' class='btn btn-danger crucialBtns ' ng-show='currentUser.name === poll.user' ng-click='deletePoll(poll)'>Delete Poll</button></a>
     <a href=/polling><button id='closeBtn' class='btn btn-warning crucialBtns ' ng-show='currentUser.name === poll.user && poll.active' ng-click='closePoll(poll)'>Close Poll</button></a>
 
 </div>

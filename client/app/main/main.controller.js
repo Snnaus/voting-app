@@ -1,22 +1,15 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $location) {
     $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+    
+    $scope.signUp = function(){
+      $location.path('/signup');
     };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    
+    $scope.viewPolls = function(){
+      $location.path('/polling');
     };
+    
   });

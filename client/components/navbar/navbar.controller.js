@@ -7,7 +7,7 @@ angular.module('workspaceApp')
       'link': '/'
     },
     {
-      'title': 'Polling',
+      'title': 'Polls',
       'link': '/polling'
     }];
 
