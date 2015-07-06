@@ -49,6 +49,7 @@ User.find({}).remove(function() {
   );
 });
 
+
 Poll.find({}).remove(function(){
   Poll.create({
     name: 'What is the answer?',
@@ -58,13 +59,13 @@ Poll.find({}).remove(function(){
     voters: []
   },{
     name: 'What is the answer??',
-    user: 'test',
+    user: 'Test User',
     active: true,
     choices: {'A':0, 'B':0, 'C':0, 'D': 0, 'E':0 },
     voters: []
   },{
     name: 'What is the answer????',
-    user: 'test',
+    user: 'Test User',
     active: false,
     choices: {'A':0, 'B':0, 'C':0, 'D': 0, 'E':0 },
     voters: []

@@ -17,8 +17,8 @@ angular.module('workspaceApp')
           $scope.pastPolls.push(poll);
         }
       });
-      console.log($scope.getPolls, $scope.pastPolls);
-      console.log(getPolls[0].user, $scope.currentUser, $scope.isLoggedIn);
+      console.log($scope.getPolls.length, $scope.pastPolls.length);
+      //console.log(getPolls[0].user, $scope.currentUser, $scope.isLoggedIn);
     });
     
     
